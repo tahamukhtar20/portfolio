@@ -6,6 +6,7 @@ import {
   GitHubLink,
   LinkedInLink,
 } from "@/app/components/Links";
+import { Card } from "@/app/components/card";
 
 export default function Resume() {
   const skillsFrontEndWeb = [
@@ -71,14 +72,48 @@ export default function Resume() {
   ];
   const skillsMisc = [
     "Git",
+    "Jest",
+    "CI/CD",
     "GitHub",
     "GitLab",
+    "Github Actions",
     "Docker",
     "Linux",
     "Regular Expressions",
-    "CI/CD",
-    "Github Actions",
-    "Jest",
+  ];
+  const certifications = [
+    {
+      name: "React",
+      issuer: "Coursera",
+    },
+    {
+      name: "Technical Support Fundamentals",
+      issuer: "Coursera",
+    },
+    {
+      name: "Javascript Intermediate",
+      issuer: "HackerRank",
+    },
+    {
+      name: "SQL Intermediate",
+      issuer: "HackerRank",
+    },
+    {
+      name: "Python Fundamentals",
+      issuer: "DataCamp",
+    },
+    {
+      name: "Pandas Foundations",
+      issuer: "DataCamp",
+    },
+    {
+      name: "Seaborn Foundations",
+      issuer: "DataCamp",
+    },
+    {
+      name: "C++ Fundamentals",
+      issuer: "SoloLearn",
+    },
   ];
 
   return (
@@ -275,6 +310,23 @@ export default function Resume() {
             ))}
           </ul>
         </li>
+      </ul>
+      <h2 className="my-5 font-semibold tracking-tighter text-gray-200 text-2xl">
+        Certifications
+      </h2>
+      <ul className="grid md:grid-cols-2 grid-cols-1 gap-4">
+        {certifications.map((certification, index) => (
+          <li className="text-gray-300 h-full inline space-y-2" key={index}>
+            <Card>
+              <div className="w-full p-6 h-full">
+                <h3 className="text-lg font-semibold text-gray-300 truncate">
+                  {certification.name}
+                </h3>
+                <p className="text-sm text-gray-500">{certification.issuer}</p>
+              </div>
+            </Card>
+          </li>
+        ))}
       </ul>
     </Layout>
   );
