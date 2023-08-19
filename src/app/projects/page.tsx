@@ -89,14 +89,14 @@ export default function Projects() {
             link={cardData.link}
           />
         ))}
-        <div className="col-span-2">
-          <CardComponent
-            title={
-              "And many more, you can check out my Github profile if you're interested."
-            }
-            link={"https://github.com/tahamukhtar20"}
-          />
-        </div>
+      </div>
+      <div className="mt-6">
+        <CardComponent
+          title={
+            "And many more, you can check out my Github profile if you're interested."
+          }
+          link={"https://github.com/tahamukhtar20"}
+        />
       </div>
     </Layout>
   );
