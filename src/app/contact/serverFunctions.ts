@@ -21,7 +21,10 @@ export async function email(req: any) {
         ${req.get("email")}</p>`,
   };
   transporter.sendMail(mailData, function (err: any, info: any) {
-    if (err) console.log(err);
-    else console.log(info);
+    if (err) return new Response(JSON.stringify({ error: err }));
+    else
+      return new Response(JSON.stringify({ message: "Email sent" }), {
+        headers: { "content-type": "application/json" },
+      });
   });
 }
