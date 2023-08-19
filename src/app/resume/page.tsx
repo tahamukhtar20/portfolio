@@ -7,6 +7,12 @@ import {
   LinkedInLink,
 } from "@/app/components/Links";
 import { Card } from "@/app/components/card";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Resume | Muhammad Taha",
+  description: "Here is my resume.",
+};
 
 export default function Resume() {
   const skillsFrontEndWeb = [

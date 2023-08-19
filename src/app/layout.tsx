@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Particles from "@/app/components/particles";
 import NextTopLoader from "nextjs-toploader";
+import { Analytics } from "@vercel/analytics/react";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,6 +28,7 @@ export default function RootLayout({
         <NextTopLoader />
         <Particles className="fixed h-screen w-full overflow-hidden z-0" />
         {children}
+        <Analytics />
       </body>
     </html>
   );

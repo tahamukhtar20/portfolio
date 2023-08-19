@@ -3,6 +3,12 @@ import Image from "next/image";
 import { Card } from "@/app/components/card";
 import Layout from "@/app/components/layout";
 import { LinkedInLink } from "@/app/components/Links";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Projects | Muhammad Taha",
+  description: "Here are some of my projects.",
+};
 
 export default function Projects() {
   const cardsData = [

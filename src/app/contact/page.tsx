@@ -2,6 +2,12 @@ import Layout from "@/app/components/layout";
 import { EmailLink, LinkedInLink } from "@/app/components/Links";
 import nodemailer from "nodemailer";
 import { Card } from "@/app/components/card";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Contact | Muhammad Taha",
+  description: "Contact me through the links below or fill the form below.",
+};
 
 export default async function page() {
   async function email(req: any) {

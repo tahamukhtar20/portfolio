@@ -19,7 +19,7 @@ export default function Layout(x: {
 function Header({ title }: { title: string }) {
   return (
     <div className="flex justify-between flex-row">
-      <div className="w-14 h-14 border-gray-500 border-r border-b rounded-br flex justify-center items-center">
+      <div className="w-14 h-14 border-gray-500 border-r border-b rounded-br-xl flex justify-center items-center">
         <Link href={"/"}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
