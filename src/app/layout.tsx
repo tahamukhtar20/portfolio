@@ -2,6 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import Particles from "@/app/components/particles";
+import NextTopLoader from "nextjs-toploader";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,6 +24,7 @@ export default function RootLayout({
           " min-h-screen w-full flex justify-center bg-gradient-to-br from-gray-900 via-black to-gray-900 bg-no-repeat bg-center bg-cover bg-fixed relative text-white cursor-crosshair"
         }
       >
+        <NextTopLoader />
         <Particles className="fixed h-screen w-full overflow-hidden z-0" />
         {children}
       </body>
