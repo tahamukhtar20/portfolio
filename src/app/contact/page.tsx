@@ -2,7 +2,7 @@ import Layout from "@/app/components/layout";
 import { EmailLink, LinkedInLink } from "@/app/components/Links";
 import { Card } from "@/app/components/card";
 import { Metadata } from "next";
-import { email } from "@/app/contact/serverFunctions";
+import { ContactForm } from "@/app/components/contactForm";
 
 export const metadata: Metadata = {
   title: "Contact | Muhammad Taha",
@@ -23,52 +23,9 @@ export default async function page() {
         </article>
         <div className="flex flex-row justify-start items-center gap-2 mt-4">
           <LinkedInLink />
-
           <EmailLink />
         </div>
-        <form className="mt-5" action={email}>
-          <div className="flex flex-col justify-center w-full gap-4 font-normal tracking-tighter">
-            <div className="flex flex-col justify-center items-center gap-2">
-              <label className="text-gray-100 text-sm text-start w-full">
-                Name
-              </label>
-              <input
-                className="bg-gray-800 rounded w-full p-2"
-                type="text"
-                name="name"
-                required={true}
-              />
-            </div>
-            <div className="flex flex-col justify-center items-center gap-2">
-              <label className="text-gray-100 text-sm text-start w-full">
-                Email
-              </label>
-              <input
-                className="bg-gray-800 rounded text-start w-full p-2"
-                type="email"
-                name="email"
-                required={true}
-              />
-            </div>
-            <div className="flex flex-col justify-center items-center gap-2">
-              <label className="text-gray-100 text-sm text-start w-full">
-                Message
-              </label>
-              <textarea
-                className="bg-gray-800 rounded text-start min-h-[12rem] w-full p-2"
-                name="message"
-                required={true}
-              />
-            </div>
-            <div className="flex flex-col items-end">
-              <Card>
-                <button className="text-start p-2 px-5" type="submit">
-                  Send
-                </button>
-              </Card>
-            </div>
-          </div>
-        </form>
+        <ContactForm />
       </div>
     </Layout>
   );

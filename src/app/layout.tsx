@@ -4,6 +4,8 @@ import { Inter } from "next/font/google";
 import Particles from "@/app/components/particles";
 import NextTopLoader from "nextjs-toploader";
 import { Analytics } from "@vercel/analytics/react";
+import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from "react-toastify";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,6 +31,16 @@ export default function RootLayout({
         <Particles className="fixed h-screen w-full overflow-hidden z-0" />
         {children}
         <Analytics />
+        <ToastContainer
+          position="bottom-right"
+          autoClose={2000}
+          hideProgressBar={true}
+          theme={"dark"}
+          toastClassName={
+            "bg-gray-900 text-white border border-gray-800 rounded-md"
+          }
+          bodyClassName={"text-sm"}
+        />
       </body>
     </html>
   );

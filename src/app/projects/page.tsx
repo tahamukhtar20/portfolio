@@ -15,39 +15,52 @@ export default function Projects() {
     {
       title: "Creadhesif-SAS",
       content:
-        "A professional freelance project made with Firebase and NextJS. It's a website for a company that sells iron curtains in France.",
+        "A professional freelance project made with NextJS, Firebase and Tailwind CSS. It's a website for a company that sells iron curtains in France.",
       image: "/images/creadhesif-sas.png",
       link: "https://www.creadhesif-sas.fr",
     },
     {
       title: "Portfolio",
       content:
-        "This website, made with NextJS and TailwindCSS. It's a website that showcases my projects and my resume.",
+        "This website, made with NextJS, NextAuth, PlanetScale, Prisma, SWR and TailwindCSS. It's a website that showcases my projects and my resume.",
+      link: "https://tahamukhtar20.vercel.app",
       image: "/images/portfolio.png",
     },
+
     {
-      title: "Portfolio",
+      title: "Diljo",
       content:
-        "This website, made with NextJS and TailwindCSS. It's a website that showcases my projects and my resume.",
-      image: "/images/portfolio.png",
+        "A personal project made in collaboration with a few other developers, made with NextJS, Tailwind CSS and PocketBase. The website isn't live anymore unfortunately.",
+      image: "/images/diljo.png",
+      link: "https://github.com/Dil-jo/diljo",
     },
     {
-      title: "Portfolio",
+      title: "Jacokin",
       content:
-        "This website, made with NextJS and TailwindCSS. It's a website that showcases my projects and my resume.",
-      image: "/images/portfolio.png",
+        "Another Freelance Project, made with NextJS, Redux, JWT, NestJS and SCSS. It was a website for a company that exports cars, unfortunately I am not allowed to share the details of the website, as its not live yet.",
     },
     {
-      title: "Portfolio",
+      title: "React Application",
       content:
-        "This website, made with NextJS and TailwindCSS. It's a website that showcases my projects and my resume.",
-      image: "/images/portfolio.png",
+        "A professional project made for the company I work for, I was responsible for the front end for the application, made with React, Redux and Tailwind CSS, unfortunately I am not allowed to share the details of the website, forbidden by the company.",
     },
     {
-      title: "Portfolio",
+      title: "88xiwfTl9kAcPccoELmUUQ-",
+      link: "https://github.com/C-no-Sekai/88xiwfTl9kAcPccoELmUUQ-",
       content:
-        "This website, made with NextJS and TailwindCSS. It's a website that showcases my projects and my resume.",
-      image: "/images/portfolio.png",
+        "A personal project made in collaboration with another developer, it was a Banking Management System made with QT Framework, C++ and SQLite. It was a complete banking management solution utilizing a client-server architecture, a full fledged loaning system, encryption etc, even though now the project doesn't seem very significant, we made it in the 2nd Semester and I am still really proud of it.",
+    },
+    {
+      title: "NUST Student Support Website",
+      content:
+        "Wasn't made from scratch, but I and the original creator of the project collaborated to revamp the website. It was made with HTML, CSS, JS and Bootstrap for the frontend, and in the backend used FAST API SQLite and Machine Learning Models for making Grade Predictions. Website is live but doesn't work anymore, as the backend is not hosted anymore.",
+      link: "https://c-no-sekai.github.io/",
+      image: "/images/nustsupport.png",
+    },
+    {
+      title: "Hotel Management System",
+      content:
+        "Made with Flask, HTML, CSS, JS and Bootstrap, it was a project for my Database Systems Course, it was a complete Hotel Management System.",
     },
   ];
   return (
@@ -76,6 +89,14 @@ export default function Projects() {
             link={cardData.link}
           />
         ))}
+        <div className="col-span-2">
+          <CardComponent
+            title={
+              "And many more, you can check out my Github profile if you're interested."
+            }
+            link={"https://github.com/tahamukhtar20"}
+          />
+        </div>
       </div>
     </Layout>
   );
@@ -89,7 +110,7 @@ function CardComponent({
 }: {
   title: string;
   link?: string;
-  content: string;
+  content?: string;
   image?: string;
 }) {
   return (

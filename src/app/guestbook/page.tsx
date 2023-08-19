@@ -1,10 +1,10 @@
 import Layout from "@/app/components/layout";
-import { Card } from "@/app/components/card";
-import { GithubButton, LogOut } from "@/app/guestbook/clientButtons";
 import { authOptions } from "@/lib/auth";
 import { getServerSession } from "next-auth";
 import { Metadata } from "next";
-import { getMessages, submitSignature } from "@/app/guestbook/serverFunctions";
+import { GuestbookForm } from "@/app/components/guestbookForm";
+import { GithubButton } from "@/app/components/clientButtons";
+import { Messages } from "@/app/components/messages";
 
 export const metadata: Metadata = {
   title: "Guestbook | Muhammad Taha",
@@ -12,14 +12,7 @@ export const metadata: Metadata = {
 };
 
 export default async function page() {
-  let messages = [];
-  messages = await getMessages();
-  let session;
-  const sessionRes = await getServerSession(authOptions);
-  if (sessionRes) {
-    session = sessionRes;
-  }
-
+  const session = await getServerSession(authOptions);
   return (
     <Layout title={"Guestbook"}>
       <div className="pb-6">
@@ -32,35 +25,8 @@ export default async function page() {
           </div>
         </article>
       </div>
-      {session?.user ? (
-        <form className="pb-4" action={submitSignature}>
-          <input
-            className="border-b-2 border-gray-500 p-2 bg-transparent focus:outline-none focus:border-gray-700"
-            type={"text"}
-            name={"message"}
-            required={true}
-          />
-          <button className="ml-3" type={"submit"}>
-            <Card>
-              <div className="p-2 px-4">Sign</div>
-            </Card>
-          </button>
-          <LogOut />
-        </form>
-      ) : (
-        <GithubButton />
-      )}
-      <ul className="pb-6">
-        {messages.map((message: any) => (
-          <li key={message.id} className="font-normal tracking-tight pb-2">
-            <span className="font-semibold">
-              {message.user.name || "Anonymous"}
-              {": "} &nbsp;
-            </span>
-            <span>{message.sign}</span>
-          </li>
-        ))}
-      </ul>
+      {session?.user ? <GuestbookForm /> : <GithubButton />}
+      <Messages />
     </Layout>
   );
 }

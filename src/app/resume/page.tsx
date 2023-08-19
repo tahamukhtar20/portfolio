@@ -1,5 +1,4 @@
 import Layout from "@/app/components/layout";
-import Link from "next/link";
 import {
   DynamicNoLink,
   EmailLink,
@@ -8,6 +7,7 @@ import {
 } from "@/app/components/Links";
 import { Card } from "@/app/components/card";
 import { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Resume | Muhammad Taha",
@@ -137,6 +137,11 @@ export default function Resume() {
           </li>
           <li className={"uppercase font-bold text-white"}>
             <EmailLink />
+          </li>
+          <li className={"uppercase font-bold text-white"}>
+            <Link href="/CV.pdf" download="cv">
+              <DynamicNoLink text={"Download CV"} />
+            </Link>
           </li>
         </ul>
       </div>
