@@ -5,12 +5,13 @@ import fs from "fs";
 import { randomUUID } from "crypto";
 
 export default async function page() {
-  const messageJSON = fs.readFileSync("guestbook.json", "utf-8");
-  if (!messageJSON) fs.writeFileSync("guestbook.json", "[]" as any);
-  const messages = JSON.parse(messageJSON) as {
-    name: string;
-    message: string;
-  }[];
+  const guestbookPath = "guestbook.json";
+  const defaultMessage = JSON.stringify([]);
+  if (!fs.existsSync(guestbookPath)) {
+    fs.writeFileSync(guestbookPath, defaultMessage);
+  }
+  const messageJSON = fs.readFileSync(guestbookPath, "utf-8") || defaultMessage;
+  const messages = JSON.parse(messageJSON);
 
   async function submitSignature(formData: FormData) {
     "use server";
