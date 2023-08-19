@@ -25,12 +25,6 @@ export default function Home() {
             contact
           </Link>
           <Link
-            href={"/about"}
-            className="font-semibold tracking-tighter text-2xl"
-          >
-            about
-          </Link>
-          <Link
             href={"/guestbook"}
             className="font-semibold tracking-tighter text-2xl"
           >

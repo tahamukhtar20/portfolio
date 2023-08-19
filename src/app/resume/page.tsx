@@ -264,7 +264,7 @@ export default function Resume() {
         </li>
         <li className="">
           <h4 className=" font-normal text-gray-400 tracking-tighter text-xl">
-            Saas
+            SaaS
           </h4>
           <ul className="py-4 flex flex-wrap gap-0.5">
             {skillsSaas.map((skill, index) => (
