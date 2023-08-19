@@ -1,8 +1,8 @@
 import Layout from "@/app/components/layout";
 import { EmailLink, LinkedInLink } from "@/app/components/Links";
-import nodemailer from "nodemailer";
 import { Card } from "@/app/components/card";
 import { Metadata } from "next";
+import { email } from "@/app/contact/serverFunctions";
 
 export const metadata: Metadata = {
   title: "Contact | Muhammad Taha",
@@ -10,32 +10,6 @@ export const metadata: Metadata = {
 };
 
 export default async function page() {
-  async function email(req: any) {
-    "use server";
-    const transporter = nodemailer.createTransport({
-      port: 465,
-      host: "smtp.gmail.com",
-      auth: {
-        user: process.env.NEXT_PUBLIC_EMAIL,
-        pass: process.env.NEXT_PUBLIC_PASSWORD,
-      },
-    });
-    const mailData = {
-      from: process.env.NEXT_PUBLIC_EMAIL,
-      to: process.env.NEXT_PUBLIC_EMAIL,
-      subject: `Message from ${req.get("name")} [${req.get(
-        "email"
-      )}] - Portfolio`,
-      text: req.get("message") + " | Sent from: " + req.get("email"),
-      html: `<div>${req.get("message")}</div><p>Sent from:
-        ${req.get("email")}</p>`,
-    };
-    transporter.sendMail(mailData, function (err: any, info: any) {
-      if (err) console.log(err);
-      else console.log(info);
-    });
-  }
-
   return (
     <Layout title={"contact"}>
       <div className="pb-6">

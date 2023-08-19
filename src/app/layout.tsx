@@ -22,7 +22,7 @@ export default function RootLayout({
       <body
         className={
           inter.className +
-          " min-h-screen w-full flex justify-center bg-gradient-to-br from-gray-900 via-black to-gray-900 bg-no-repeat bg-center bg-cover bg-fixed relative text-white cursor-crosshair"
+          " min-h-screen w-full flex justify-center bg-gradient-to-br from-gray-900 via-black to-gray-900 bg-no-repeat bg-center bg-cover bg-fixed relative text-white scroll-smooth"
         }
       >
         <NextTopLoader />

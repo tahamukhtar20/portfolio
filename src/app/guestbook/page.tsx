@@ -1,13 +1,10 @@
 import Layout from "@/app/components/layout";
 import { Card } from "@/app/components/card";
-import { revalidatePath } from "next/cache";
-import fs from "fs";
-import { randomUUID } from "crypto";
 import { GithubButton, LogOut } from "@/app/guestbook/clientButtons";
 import { authOptions } from "@/lib/auth";
 import { getServerSession } from "next-auth";
-import { Simulate } from "react-dom/test-utils";
 import { Metadata } from "next";
+import { getMessages, submitSignature } from "@/app/guestbook/serverFunctions";
 
 export const metadata: Metadata = {
   title: "Guestbook | Muhammad Taha",
@@ -16,36 +13,11 @@ export const metadata: Metadata = {
 
 export default async function page() {
   let messages = [];
+  messages = await getMessages();
   let session;
-  const guestbookPath = "guestbook.json";
-  const defaultMessage = JSON.stringify([]);
-  if (!fs.existsSync(guestbookPath)) {
-    fs.writeFileSync(guestbookPath, defaultMessage);
-  }
-  const messageJSON = fs.readFileSync(guestbookPath, "utf-8") || defaultMessage;
-  messages = JSON.parse(messageJSON);
   const sessionRes = await getServerSession(authOptions);
   if (sessionRes) {
     session = sessionRes;
-  }
-
-  async function submitSignature(formData: FormData) {
-    "use server";
-    const session = await getServerSession(authOptions);
-    if (!session) return;
-    const message = formData.get("message");
-    if (!message) return;
-    const msgJSON = {
-      id: randomUUID(),
-      name: session?.user?.name || "Anonymous",
-      message: message.toString(),
-    };
-    const previousMessages = JSON.parse(
-        fs.readFileSync("guestbook.json", "utf-8")
-      ),
-      newMessages = [msgJSON, ...previousMessages];
-    fs.writeFileSync("guestbook.json", JSON.stringify(newMessages));
-    revalidatePath("/guestbook");
   }
 
   return (
@@ -82,10 +54,10 @@ export default async function page() {
         {messages.map((message: any) => (
           <li key={message.id} className="font-normal tracking-tight pb-2">
             <span className="font-semibold">
-              {message.name}
+              {message.user.name || "Anonymous"}
               {": "} &nbsp;
             </span>
-            <span>{message.message}</span>
+            <span>{message.sign}</span>
           </li>
         ))}
       </ul>
