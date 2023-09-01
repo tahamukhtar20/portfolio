@@ -36,8 +36,10 @@ export default function Projects() {
     },
     {
       title: "Jacokin",
+      image: "/images/jacokinAuto.png",
+      link: "https://jacokinauto.co.jp/",
       content:
-        "Another Freelance Project, made with NextJS, Redux, JWT, NestJS and SCSS. It was a website for a company that exports cars, unfortunately I am not allowed to share the details of the website, as its not live yet.",
+        "Another Freelance Project, made with NextJS, Redux, JWT, NestJS and SCSS. This was not an individual project, I was working with a team of freelance developers, and I was responsible for the API integration and some parts of the frontend.",
     },
     {
       title: "React Application",
