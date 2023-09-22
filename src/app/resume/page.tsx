@@ -148,15 +148,17 @@ export default function Resume() {
       <h2 className="my-5 font-semibold tracking-tighter text-gray-200 text-2xl">
         Work Experience
       </h2>
+      <h3 className="my-5 font-semibold tracking-tighter text-gray-200 text-xl">
+        Onescreen Solutions
+      </h3>
       <ol className="relative border-l border-gray-600">
         <li className="mb-10 ml-4">
           <div className="absolute w-3 h-3 bg-gray-600 rounded-full mt-1.5 -left-1.5"></div>
           <time className="mb-1 text-sm font-normal leading-none text-gray-200">
-            June 2023 - Present
+            August 2023 - Present
           </time>
           <h3 className="text-lg font-semibold text-gray-300">
-            Software Engineering Intern{" "}
-            <span className="text-sm text-gray-500">@OneScreen</span>
+            Junior Software Developer{" "}
           </h3>
           <p className="mb-4 text-base font-normal text-gray-500">
             Worked with the Research and Development team to develop new
@@ -166,11 +168,28 @@ export default function Resume() {
         <li className="mb-10 ml-4">
           <div className="absolute w-3 h-3 bg-gray-600 rounded-full mt-1.5 -left-1.5"></div>
           <time className="mb-1 text-sm font-normal leading-none text-gray-200">
+            May 2023 - August 2023
+          </time>
+          <h3 className="text-lg font-semibold text-gray-300">
+            Research And Development Intern{" "}
+          </h3>
+          <p className="mb-4 text-base font-normal text-gray-500">
+            Worked with the Research and Development team to develop new
+            software applications/tools for the company.
+          </p>
+        </li>
+      </ol>
+      <h3 className="my-5 font-semibold tracking-tighter text-gray-200 text-xl ">
+        Fiverr
+        </h3>
+      <ol className="relative border-l border-gray-600">
+        <li className="mb-10 ml-4">
+          <div className="absolute w-3 h-3 bg-gray-600 rounded-full mt-1.5 -left-1.5"></div>
+          <time className="mb-1 text-sm font-normal leading-none text-gray-200">
             April 2022 - Present
           </time>
           <h3 className="text-lg font-semibold text-gray-300">
             Freelance Web Developer{" "}
-            <span className="text-sm text-gray-500">@Fiverr</span>
           </h3>
           <p className="text-base font-normal text-gray-500">
             Worked with clients to develop websites and web applications. Worked
